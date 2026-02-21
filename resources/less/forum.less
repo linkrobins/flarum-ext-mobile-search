@@ -1,28 +1,22 @@
-// Styling for our custom mobile search bar
-.IndexPage-sidebar .item-search {
-    margin-bottom: 20px;
-    display: block; // Force it to show
+// Target the search specifically inside the navigation area
+.IndexPage-nav .item-search {
+    display: block !important; // Force visibility on mobile
+    width: 100%;
+    margin-bottom: 15px;
+
+    .Search {
+        display: block !important; // Overwrite Flarum core which hides .Search on mobile
+        width: 100%;
+    }
 
     .Search-input {
         width: 100%;
-        background: var(--control-bg); // Use Flarum's theme colors
-        border: 1px solid var(--control-danger-bg); // Optional: add a subtle border
+        background: var(--control-bg);
+        border: 1px solid var(--control-danger-bg);
     }
-}
-
-// Hide the bar on Desktop so it doesn't double-up with the header search
-@media (min-width: 768px) {
-    .IndexPage-sidebar .item-search {
+    
+    // Hide it on desktop because the header already has a search bar
+    @media (min-width: 768px) {
         display: none !important;
-    }
-}
-
-// Fix for mobile: make sure the search container is full width
-@media (max-width: 767px) {
-    .IndexPage-sidebar .Search {
-        width: 100%;
-    }
-    .IndexPage-sidebar .Search-input {
-        height: 40px;
     }
 }
