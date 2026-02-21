@@ -5,6 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: flarum/action-build@master
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: '18'
+
+      - name: Install and Build
+        run: |
+          cd js
+          npm install
+          npm run build
+
+      - name: Commit and Push JS
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Build JavaScript Assets"
+          file_pattern: 'js/dist/*.js js/package-lock.json'
