@@ -1,18 +1,18 @@
 @media @tablet-up {
     .IndexPage-toolbar-view .item-search {
-        display: none;
+        display: none !important;
     }
 }
 
 @media @phone {
-    // Hide normal search when on homepage
+    // Hide the standard header search bar so we don't have two
     .App--index .Header-controls .item-search {
-        display: none;
+        display: none !important;
     }
 
-    // Expand search bar to available space
+    // Force the Middle toolbar to show and expand
     .IndexPage-toolbar {
-        display: flex !important; // Force the toolbar to show on mobile
+        display: flex !important;
 
         .IndexPage-toolbar-view {
             flex: 1;
@@ -21,21 +21,20 @@
 
             .item-search {
                 flex: 1;
+                display: block !important;
 
-                // CRITICAL FIX: Modern Flarum hides the .Search component on mobile.
-                // We must force it back to block display.
+                // CRITICAL: Overwrite core hiding rules
                 .Search {
                     display: block !important;
+                    width: 100%;
                 }
 
                 .Search-input input {
                     width: 100%;
+                    height: 40px;
+                    background: var(--control-bg);
                 }
             }
-        }
-
-        .IndexPage-toolbar-action {
-            display: flex;
         }
     }
 }
