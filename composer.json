@@ -7,7 +7,7 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": "^1.0"
+        "flarum/core": "^1.8.13"
     },
     "authors": [
         {
@@ -17,10 +17,9 @@
             "role": "Developer"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "Linkrobins\\MobileSearch\\": "src/"
-        }
+    "support": {
+        "issues": "https://github.com/linkrobins/flarum-ext-mobile-search/issues",
+        "source": "https://github.com/linkrobins/flarum-ext-mobile-search"
     },
     "extra": {
         "flarum-extension": {
