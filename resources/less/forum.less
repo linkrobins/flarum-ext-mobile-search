@@ -1,35 +1,28 @@
-@media @tablet-up {
-    .IndexPage-toolbar-view .item-search {
-        display: none;
+// Styling for our custom mobile search bar
+.IndexPage-sidebar .item-search {
+    margin-bottom: 20px;
+    display: block; // Force it to show
+
+    .Search-input {
+        width: 100%;
+        background: var(--control-bg); // Use Flarum's theme colors
+        border: 1px solid var(--control-danger-bg); // Optional: add a subtle border
     }
 }
 
-@media @phone {
-    // Hide normal search when on homepage
-    .App--index .Header-controls .item-search {
-        display: none;
+// Hide the bar on Desktop so it doesn't double-up with the header search
+@media (min-width: 768px) {
+    .IndexPage-sidebar .item-search {
+        display: none !important;
     }
+}
 
-    // Expand search bar to available space
-    .IndexPage-toolbar {
-        display: flex;
-
-        .IndexPage-toolbar-view {
-            flex: 1;
-            display: flex;
-            flex-wrap: wrap;
-
-            .item-search {
-                flex: 1;
-
-                .Search-input input {
-                    width: 100%;
-                }
-            }
-        }
-
-        .IndexPage-toolbar-action {
-            display: flex;
-        }
+// Fix for mobile: make sure the search container is full width
+@media (max-width: 767px) {
+    .IndexPage-sidebar .Search {
+        width: 100%;
+    }
+    .IndexPage-sidebar .Search-input {
+        height: 40px;
     }
 }
