@@ -1,22 +1,37 @@
-// Target the search specifically inside the navigation area
-.IndexPage-nav .item-search {
-    display: block !important; // Force visibility on mobile
-    width: 100%;
-    margin-bottom: 15px;
+// Force the Index Page toolbar to be visible on mobile
+.IndexPage-results .IndexPage-toolbar {
+    display: block !important;
+}
 
-    .Search {
-        display: block !important; // Overwrite Flarum core which hides .Search on mobile
-        width: 100%;
-    }
+// Make the search item inside that toolbar look right
+.IndexPage-results .IndexPage-toolbar-view {
+    display: block !important;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 
-    .Search-input {
+    .item-search {
+        display: block !important;
         width: 100%;
-        background: var(--control-bg);
-        border: 1px solid var(--control-danger-bg);
+        margin-bottom: 10px;
+
+        .Search {
+            display: block !important; // Overwrite Flarum core hiding .Search on mobile
+            width: 100%;
+        }
+
+        .Search-input {
+            width: 100%;
+            background: var(--control-bg);
+            border: 1px solid var(--control-danger-bg);
+            height: 40px;
+        }
     }
-    
-    // Hide it on desktop because the header already has a search bar
-    @media (min-width: 768px) {
+}
+
+// Hide this specific search bar on Desktop (since it's already in the header)
+@media (min-width: 768px) {
+    .IndexPage-results .item-search {
         display: none !important;
     }
 }
