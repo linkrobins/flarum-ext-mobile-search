@@ -5,7 +5,7 @@ import Search from 'flarum/forum/components/Search';
 
 app.initializers.add('linkrobins-mobile-search', () => {
     extend(IndexPage.prototype, 'viewItems', function (items) {
-        // -10 priority puts it exactly between the sort dropdown and the action buttons
+        // Using -10 priority puts it in the middle of the toolbar
         items.add('search', Search.component({
             state: app.search,
         }), -10);
