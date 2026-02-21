@@ -1,24 +1,22 @@
 @media @phone {
-    // Force the "Middle" toolbar to be visible and flex
+    // 1. Force the container toolbar to show
     .IndexPage-toolbar {
         display: flex !important;
-        width: 100%;
-        gap: 10px;
-        align-items: center;
     }
 
+    // 2. Target the specific list where the sort dropdown lives
     .IndexPage-toolbar-view {
-        flex: 1; // Makes the middle section grow
         display: flex !important;
+        flex: 1; 
         align-items: center;
 
         .item-search {
-            flex: 1;
+            flex: 1; // Take up all available space in the middle
             margin: 0 10px;
             display: block !important;
 
             .Search {
-                display: block !important;
+                display: block !important; // Bypass Flarum core hiding
                 width: 100%;
             }
 
@@ -26,12 +24,12 @@
                 width: 100%;
                 height: 38px;
                 background: var(--control-bg);
+                border: 1px solid var(--control-danger-bg);
             }
         }
     }
 }
 
-// Hide on desktop
 @media @tablet-up {
     .IndexPage-toolbar-view .item-search {
         display: none !important;
