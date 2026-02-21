@@ -4,12 +4,9 @@ import IndexPage from 'flarum/forum/components/IndexPage';
 import Search from 'flarum/forum/components/Search';
 
 app.initializers.add('linkrobins-mobile-search', () => {
-    console.log('Mobile search extension is running'); // This will help us debug
-
-    extend(IndexPage.prototype, 'navItems', function (items) {
-        // We add a custom class 'MobileSearch' to bypass Flarum's default hidden search CSS
+    extend(IndexPage.prototype, 'viewItems', function (items) {
         items.add('search', Search.component({
             state: app.search,
-        }), 100);
+        }), 100); // 100 priority keeps it at the top of the toolbar
     });
 });
