@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: flarum/action-build@v1
+      - uses: flarum/action-build@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
