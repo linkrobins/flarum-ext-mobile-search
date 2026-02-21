@@ -1,20 +1,20 @@
 @media @phone {
-    // 1. Force the Toolbar to actually show (Flarum hides this by default)
+    // Force the "Middle" toolbar to be visible and flex
     .IndexPage-toolbar {
         display: flex !important;
-        justify-content: space-between;
-        align-items: center;
+        width: 100%;
         gap: 10px;
+        align-items: center;
     }
 
     .IndexPage-toolbar-view {
+        flex: 1; // Makes the middle section grow
         display: flex !important;
-        flex: 1; // Makes this side expand
         align-items: center;
-        gap: 10px;
 
         .item-search {
-            flex: 1; // Makes the search bar take up the middle space
+            flex: 1;
+            margin: 0 10px;
             display: block !important;
 
             .Search {
@@ -24,7 +24,7 @@
 
             .Search-input input {
                 width: 100%;
-                height: 36px;
+                height: 38px;
                 background: var(--control-bg);
             }
         }
