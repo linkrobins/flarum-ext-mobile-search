@@ -7,6 +7,6 @@ app.initializers.add('linkrobins-mobile-search', () => {
     extend(IndexPage.prototype, 'viewItems', function (items) {
         items.add('search', Search.component({
             state: app.search,
-        }), 100);
+        }), -10); // Priority -10 puts it after the Sort dropdown
     });
 });
