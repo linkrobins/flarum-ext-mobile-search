@@ -1,6 +1,6 @@
 <?php
 
-namespace ClarkWinkelmann\MobileSearch;
+namespace Linkrobins\MobileSearch; // <--- Changed from ClarkWinkelmann
 
 use Flarum\Extend;
 
