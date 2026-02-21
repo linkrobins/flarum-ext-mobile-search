@@ -1,37 +1,41 @@
-// Force the Index Page toolbar to be visible on mobile
-.IndexPage-results .IndexPage-toolbar {
-    display: block !important;
-}
-
-// Make the search item inside that toolbar look right
-.IndexPage-results .IndexPage-toolbar-view {
-    display: block !important;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    .item-search {
-        display: block !important;
-        width: 100%;
-        margin-bottom: 10px;
-
-        .Search {
-            display: block !important; // Overwrite Flarum core hiding .Search on mobile
-            width: 100%;
-        }
-
-        .Search-input {
-            width: 100%;
-            background: var(--control-bg);
-            border: 1px solid var(--control-danger-bg);
-            height: 40px;
-        }
+@media @tablet-up {
+    .IndexPage-toolbar-view .item-search {
+        display: none;
     }
 }
 
-// Hide this specific search bar on Desktop (since it's already in the header)
-@media (min-width: 768px) {
-    .IndexPage-results .item-search {
-        display: none !important;
+@media @phone {
+    // Hide normal search when on homepage
+    .App--index .Header-controls .item-search {
+        display: none;
+    }
+
+    // Expand search bar to available space
+    .IndexPage-toolbar {
+        display: flex !important; // Force the toolbar to show on mobile
+
+        .IndexPage-toolbar-view {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+
+            .item-search {
+                flex: 1;
+
+                // CRITICAL FIX: Modern Flarum hides the .Search component on mobile.
+                // We must force it back to block display.
+                .Search {
+                    display: block !important;
+                }
+
+                .Search-input input {
+                    width: 100%;
+                }
+            }
+        }
+
+        .IndexPage-toolbar-action {
+            display: flex;
+        }
     }
 }
