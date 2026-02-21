@@ -3,6 +3,7 @@ import app from 'flarum/forum/app';
 import IndexPage from 'flarum/forum/components/IndexPage';
 import Search from 'flarum/forum/components/Search';
 
+// Make sure this ID matches your composer.json 'name' field perfectly
 app.initializers.add('linkrobins-mobile-search', () => {
     extend(IndexPage.prototype, 'viewItems', function (items) {
         items.add('search', Search.component({
